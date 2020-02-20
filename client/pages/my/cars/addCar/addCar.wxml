@@ -1,0 +1,23 @@
+<view class='cars-parent'>
+  <view class='cars-type-parent'>
+    <view class='cars-type'>车   型：</view>
+    <input class='cars-input' name='carType' placeholder="车型：如奥迪、宝马、奔驰等" bindinput='carTypeInput'></input>
+  </view>
+
+  <view class='cars-style-parent'>
+    <view class='cars-style'>车   系：</view>
+    <input class='cars-input' name='carStyle' placeholder="车系：如A6L、530Li、E300L等" bindinput='carStyleInput'></input>
+  </view>
+
+
+  <view class='cars-number-parent'>
+    <view class='cars-number'>车 牌：</view>
+    <input class='cars-input' name='carNumber' placeholder="如：粤B123AB" bindinput='carNumberInput'></input>
+  </view>
+
+  <view class='cars-button-parent'>
+    <button class='cars-button-cancel' bindtap="cancelButton">取消</button>
+    <button class='cars-button-confirm' bindtap="confirmButton">确定</button>
+  </view>
+
+</view>

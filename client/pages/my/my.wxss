@@ -1,0 +1,50 @@
+.class-tab-my-parent{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  justify-content: left;
+}
+
+.class-my-personal-info{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.class-my-personal-info-nick{
+  margin-top: 30rpx;
+}
+
+.class-my-personal-info-login{
+  margin-top: 30rpx;
+  width: 200rpx;
+  font-size:24rpx;
+}
+.class-my-personal-info-head{
+  width: 100rpx;
+  height: 100rpx;
+   border-radius: 100%;
+}
+
+.class-my-car{
+  background-color: #f7f7f9;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.class-my-version-info{
+  background-color: #f7f7f9;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.class-my-feed{
+  background-color: #f7f7f9;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+

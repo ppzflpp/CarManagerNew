@@ -1,0 +1,25 @@
+<view class='cars-list-parent'>
+
+  <view hidden="{{hideToast}}" class='no-car-toast'>
+    <view >
+    {{emptyToast}}
+    </view>
+  </view>
+
+ <view class='cars-list-parent'wx:for = "{{userInfoList}}">
+  <view class='car-list-child' >
+    <view class='car-list-child-1'>
+      <view class='car-list-child-1-left'>{{item.carType}}</view>
+      <view class='car-list-child-1-right'>{{item.carStyle}}</view>
+    </view>
+    <view class='car-list-child-2'>{{item.carNumber}}</view>
+  </view>
+ </view>
+
+
+
+  <view class='cars-add-parent'>
+    <button class='cars-add-button' bindtap='addCar'>新增车辆</button>
+  </view>
+
+</view>

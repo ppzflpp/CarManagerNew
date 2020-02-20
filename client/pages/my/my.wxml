@@ -1,0 +1,30 @@
+<view class='class-tab-my-parent'>
+  <!--个人信息---->
+  <view class='class-my-personal-info '>
+    <image class='class-my-personal-info-head' src='{{headIcon}}' ></image>
+    <view class='class-my-personal-info-nick' >{{nick}}</view>
+    <view wx:if='{{!logined}}'>
+      <button class='class-my-personal-info-login' open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" >点击登录</button>
+    </view>
+  </view>
+
+  <!--我的车辆---->
+  <view>
+    <view class='class-my-car' bindtap='onMyCarClick'>我的车辆</view>
+  </view>
+
+  <!--版本信息---->
+  <view>
+    <view class='class-my-version-info' bindtap='onVersionInfoClick'>版本信息</view>
+  </view>
+
+  <!--意见反馈---->
+  <view>
+    <view class='class-my-feed' bindtap='onFeedClick'>意见反馈</view>
+  </view>
+
+
+
+
+
+</view>
