@@ -12,7 +12,7 @@
 <!--消费日期-->
   <view class='class-parent-row'>
     <text class='normal-text'>消费日期:</text>
-    <picker class='picker' mode = 'date' bindchange='bindPickerDate' value='{{currentDate}}' start='2000-01-01' end='2020-01-01'>
+    <picker class='picker' mode = 'date' bindchange='bindPickerDate' value='{{currentDate}}' start='2000-01-01' end='2030-01-01'>
       <view class="picker-text">
         {{currentDate}}
       </view>

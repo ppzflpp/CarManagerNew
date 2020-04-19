@@ -117,7 +117,7 @@ App({
     itemList: null,
     tableName: "",
     env:"",
-    DEBUG: true,
+    DEBUG: false,
     versionInfo:'当前版本：v1.5.0 ',
     feed:'请加微信给作者反馈意见，微信：lfz_123_lfz'
   }

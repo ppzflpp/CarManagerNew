@@ -1,0 +1,9 @@
+/* client/pages/news/news.wxss */
+
+.news{
+  font-size: 32rpx
+}
+
+.news_parent{
+  padding:20rpx;
+}

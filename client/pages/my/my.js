@@ -1,4 +1,5 @@
 // pages/my/my.js
+const util = require("../../utils/util.js");
 
 const app = getApp()
 const db = wx.cloud.database({
@@ -93,7 +94,7 @@ Page({
       return;
     }
 
-    //保持登录信息到数据库
+    //保存登录信息到数据库
     //1、先判断之前是否有记录
     db.collection("carmanager-user-info").where({
       openId: app.globalData.openId
@@ -103,9 +104,11 @@ Page({
         console.log("res1.data.length = ", res1.data.length);
         if(res1 == null || res1.data == null || res1.data.length == 0){
           console.log("没有记录 ")
+          let date = util.formatTime(new Date())
           //2、没有记录，添加新的记录进去
           db.collection("carmanager-user-info").add({
             data: {
+              registerDate: date,
               openId: app.globalData.openId,
               nick: res.nickName,
               cars: []

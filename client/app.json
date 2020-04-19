@@ -7,7 +7,8 @@
     "pages/my/my",
     "pages/discovery/discovery",
     "pages/my/cars/carsList/carsList",
-    "pages/my/cars/addCar/addCar"
+    "pages/my/cars/addCar/addCar",
+    "pages/news/news"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,7 +23,6 @@
         "pagePath": "pages/index/index",
         "text": "明细"
       },
-
       {
         "pagePath": "pages/chart/chart",
         "text": "报表"

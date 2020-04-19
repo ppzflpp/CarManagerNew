@@ -158,7 +158,7 @@ page {
 }
 .style-text-right-class-1{
   font-size: 30rpx;
-  padding-left:5rpx;
+  padding-left:15rpx;
   color: #666666;
 }
 
