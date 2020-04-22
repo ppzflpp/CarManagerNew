@@ -1,6 +1,5 @@
 // pages/discovery/discovery.js
 var amapFile = require('../../dist/location/amap-wx.js');
-var Bmob = require('../../dist/Bmob-1.7.0.min.js');
 const db = wx.cloud.database()
 
 Page({

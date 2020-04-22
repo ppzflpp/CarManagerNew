@@ -7,9 +7,9 @@ const db = cloud.database({
 })
 
 // 云函数入口函数
-exports.main = async(event, context) => {
-
-  return db.collection(event.tableName).doc(event._id).update({
+exports.main = async (event, context) => {
+  
+  return db.collection(event.tableName).add({
     data : {
       user_id : event.user_id,
       index : event.index,

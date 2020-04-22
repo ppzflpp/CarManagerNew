@@ -21,9 +21,14 @@ const getCurrentDate = () =>{
 
 }
 
+const log = (str,res=null) =>{
+  //console.log(str,res)
+}
+
 module.exports = {
   formatTime: formatTime,
-  getCurrentDate: getCurrentDate
+  getCurrentDate: getCurrentDate,
+  log : log
 }
 
 

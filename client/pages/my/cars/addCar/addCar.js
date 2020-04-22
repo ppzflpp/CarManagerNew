@@ -86,7 +86,7 @@ Page({
     })
     var userInfo = db.collection('carmanager-user-info');
     wx.cloud.callFunction({
-      name: 'update',
+      name: 'updateCars',
       data: {
         tableName: 'carmanager-user-info',
         openId: app.globalData.openId,

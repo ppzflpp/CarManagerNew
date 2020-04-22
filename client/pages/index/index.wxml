@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view>
   <view class="container">
-    <view wx:for="{{newsList}}" class="newsList" data-objectid='{{item.objectId}}' bindtap='onItemClick'>
+    <view wx:for="{{newsList}}" class="newsList" data-objectid='{{item._id}}' bindtap='onItemClick'>
       <view class='child-row'>
         <image class='child-row-icon' src='{{imageArray[item.index]}}'></image>
         <view class='child-row-mid'>

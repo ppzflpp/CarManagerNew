@@ -1,7 +1,7 @@
 //index.js
-//获取应用实
-var Bmob = require('../../dist/Bmob-1.7.0.min.js');
-const app = getApp()
+const util = require('../../utils/util.js')
+
+const app = getApp();
 
 Page({
   data: {
@@ -9,20 +9,20 @@ Page({
     imageArray: ['../../images/jiayou.png', '../../images/xiche.png', '../../images/weixiu.png', '../../images/baoyang.png', '../../images/baoxian.png', '../../images/qita.png']
   },
 
-  addInfo: function() {
+  addInfo: function () {
     wx.navigateTo({
       url: '../edit/edit',
     })
   },
 
-  onLoad: function() {
+  onLoad: function () {
     wx.showShareMenu({
       withShareTicket: true
     })
 
     if (!app.globalData.openId) {
       app.openIdReadyCallback = res => {
-        console.log("openIdReadyCallback");
+        util.log("openIdReadyCallback",null);
         //第一次初始化程序 需要加载数据
         this.loadData();
       }
@@ -32,56 +32,64 @@ Page({
     }
   },
   //加载数据
-  loadData: function() {
+  loadData: function () {
+    var that = this;
     // 显示顶部刷新图标
-    wx.showNavigationBarLoading();
+    wx.showLoading({
+      title: '正在加载数据...',
+    });
 
-    var myDate = new Date();
-    var date = myDate.toLocaleDateString();
-    const query = Bmob.Query(app.globalData.tableName);
-    query.equalTo('user_id', "==", app.globalData.openId);
-    console.log("index,query,openId = " + app.globalData.openId);
-    query.order("-date");
-    query.find().then(res => {
-      console.log(res);
-      if (res.length == 0) {
-        this.setData({
-          empty_content: '无内容，请添加'
-        })
-      } else {
-        this.setData({
-          empty_content: ''
-        })
+    wx.cloud.callFunction({
+      name: 'query',
+      data :{
+        tableName : app.globalData.tableName,
+        openId : app.globalData.openId
+      },
+      success: function(res) {
+        util.log("res 333", res.result.data);
+        if (res.result.data == 0) {
+          that.setData({
+            empty_content: '无内容，请添加'
+          })
+        } else {
+          that.setData({
+            empty_content: ''
+          })
+        }
+        that.setData({
+          newsList: res.result.data
+        });
+        app.globalData.itemList = res.result.data;
+        
+        wx.hideLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+      },
+      fail: function(err)  {
+        util.log('[云函数] [query] error', err)
+        wx.hideLoading();
       }
-      this.setData({
-        newsList: res
-      });
-      app.globalData.itemList = res;
-      // 隐藏导航栏加载框
-      wx.hideNavigationBarLoading();
-      // 停止下拉动作
-      wx.stopPullDownRefresh();
     });
   },
 
-  onItemClick: function(res) {
-    var id = res.currentTarget.dataset.objectid;
-    console.log('onItemClick,objectId = ' + id);
+  onItemClick: function (res) {
+    var objectId = res.currentTarget.dataset.objectid;
+    util.log('onItemClick,_id = ' , objectId);
     wx.navigateTo({
-      url: '../edit/edit?objectId=' + id,
+      url: '../edit/edit?_id=' + objectId,
     })
   },
 
-  onAddClick: function(){
+  onAddClick: function () {
     var that = this;
     // 判断是否已经登录
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
-          console.log("未授权，先登录");
+          util.log("未授权，先登录");
           wx.showToast({
             title: '请先登录',
-            image:'/images/fail.png'
+            image: '/images/fail.png'
           })
           /*
           wx.switchTab({
@@ -89,7 +97,7 @@ Page({
           })
           */
         } else {
-          console.log("已经授权");
+          util.log("已经授权");
           //正常跳转
           wx.navigateTo({
             url: '/pages/edit/edit',
@@ -99,28 +107,28 @@ Page({
     })
   },
 
-  onShow: function() {
+  onShow: function () {
     if (app.globalData.updateData) {
-      console.log("data dirty ,update");
+      util.log("data dirty ,update",null);
       this.loadData();
       app.globalData.updateData = false;
     } else {
-      console.log("data not dirty ");
+      util.log("data not dirty ",null);
     }
   },
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.loadData();
   },
   onShareAppMessage: function (res) {
-    console.log("onShareAppMessage")
+    util.log("onShareAppMessage",null)
     return {
       title: '一个月养车尽然花这么多钱？',
       path: '/pages/index/index',
       success: function (res) {
-        console.log("share success")
+        util.log("share success",null)
       },
       fail: function (res) {
-        console.log("share fail")
+        util.log("share fail",null)
       }
     }
   }

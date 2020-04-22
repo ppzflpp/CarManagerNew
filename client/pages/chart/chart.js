@@ -144,7 +144,7 @@ Page({
   onReady() {},
 
   echartInit(e) {
-    console.log("echartInit");
+    //console.log("echartInit");
     initChart(e.detail.canvas, e.detail.width, e.detail.height);
   }
 });
