@@ -22,7 +22,7 @@ const getCurrentDate = () =>{
 }
 
 const log = (str,res=null) =>{
-  //console.log(str,res)
+  console.log(str,res)
 }
 
 module.exports = {

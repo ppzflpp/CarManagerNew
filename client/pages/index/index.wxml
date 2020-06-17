@@ -1,24 +1,25 @@
-<!--index.wxml-->
-<view>
-  <view class="container">
-    <view wx:for="{{newsList}}" class="newsList" data-objectid='{{item._id}}' bindtap='onItemClick'>
-      <view class='child-row'>
-        <image class='child-row-icon' src='{{imageArray[item.index]}}'></image>
-        <view class='child-row-mid'>
-          <text class='child-row-mid-text-1'>{{item.style}}</text>
-          <text class='child-row-date'>{{item.date}}</text>
-        </view>
-        <text class='child-row-mid-text-2'>{{item.money}}</text>
-        <text class='child-row-mid-text-3'>元</text>
 
-      </view>
-    </view>
-  </view>
+<view  class="cu-list menu-avatar">
+	<view class="cu-item margin-bottom-self" wx:for="{{newsList}}" data-objectid='{{item._id}}' bindtap='onItemClick'>
+		<image class="cu-avatar round lg" src='{{imageArray[item.index]}}'>
+		</image>
+		<view class="content flex-sub">
+			<view class="">{{item.style}}</view>
+			<view class="text-gray text-sm flex justify-between">
+				{{item.date}}
+			</view>
+		</view>
+		<view class="text-black text-blod text-xxl margin-right-sm">
+			{{item.money}}
+		</view>
+		<view class="text-black text-blod  margin-right-lg">
+			元
+		</view>
+	</view>
+</view>
 
-  <view class="round-click" bindtap="onAddClick">添加</view>
+<view class="round-click" bindtap="onAddClick">添加</view>
 
-  <view class="empty-content">
-    {{empty_content}}
-  </view>
-
+<view class="empty-content">
+	{{empty_content}}
 </view>

@@ -39,35 +39,27 @@ Page({
   },
   onVersionInfoClick: function() {
     console.log("onVersionInfoClick")
+    wx.navigateTo({
+      url: '/pages/my/versionInfo/versionInfo',
+    })
+    
+  },
+  onFeedClick:function(){
+    wx.navigateTo({
+      url: '/pages/my/feed/feed',
+    })
+  },
+  onAuthorClick: function() {
+    wx.navigateTo({
+      url: '/pages/my/author/author',
+    })
+  },
+  onRecProgremClick:function(){
+    wx.navigateTo({
+      url: '/pages/my/recProgram/recProgram',
+    })
+  },
 
-    wx.showModal({
-      title: '版本',
-      content: app.globalData.versionInfo,
-      showCancel: false,
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
-  onFeedClick: function() {
-    console.log("onFeedClick")
-    wx.showModal({
-      title: '意见反馈',
-      content: app.globalData.feed,
-      showCancel: false,
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
   onGetUserInfo: function(e) {
     console.log("onGetUserInfo")
     if (e.detail.userInfo) {

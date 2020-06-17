@@ -1,0 +1,17 @@
+
+	<view class="cu-form-group">
+		<view class="title">联系方式</view>
+		<input placeholder="请输入联系方式" bindinput="phoneInput"></input>
+	</view>
+
+	<view class="cu-form-group align-start ">
+		<view class="title">我的意见</view>
+		<textarea  maxlength="-1"   bindinput="feedInput" placeholder="我想说"></textarea>
+	</view>
+
+
+	<view class="flex solid-bottom padding justify-around ">
+		<view class="bg-white padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap="cancelButton">取 消</view>
+		<view class="bg-green padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap='confirmButton'>反 馈</view>
+	</view>
+  

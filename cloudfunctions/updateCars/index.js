@@ -2,33 +2,41 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init()
-
+const db = cloud.database({
+  env : "release-5q0el"
+})
 
 // 云函数入口函数
-exports.main = async(event, context) => {
-  console.log("tableName = " + event.tableName);
-  console.log("openId = " + event.openId);
-  console.log("info = ", event.info);
-  console.log("evn1 = ", event.env);
+exports.main = async (event, context) => {
 
-
-  const db = cloud.database({
-    env: event.env
-  })
-  const _ = db.command;
+  console.log("updateCars", event)
+  var tmpData = {
+    openId: event.openId,
+    carState: event.carState,
+    carType: event.carType,
+    carStyle: event.carStyle,
+    carNumber: event.carNumber,
+    carPrice: event.carPrice,
+    carBuyDate: event.carBuyDate,
+    carImage: event.carImage
+  }
 
   try {
-    return await db.collection(event.tableName)
-      .where({
-        openId: event.openId
-      })
-      .update({
-        data: {
-          cars: _.push(event.info)
-        }
-      })
+    if (!event.edit) {
+      return await db.collection("cars-info").add({
+        data: tmpData
+      });
+    } else {
+      return await db.collection("cars-info")
+        .where({
+          _id: event._id
+        })
+        .update({
+          data: tmpData
+        })
+    }
+
   } catch (e) {
     console.error(e)
-    console.debug("test test")
   }
 }

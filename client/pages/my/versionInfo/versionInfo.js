@@ -1,4 +1,4 @@
-// client/pages/news/news.js
+// client/pages/my/versionInfo/versionInfo.js
 Page({
 
   /**

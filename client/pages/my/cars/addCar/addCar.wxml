@@ -1,23 +1,47 @@
-<view class='cars-parent'>
-  <view class='cars-type-parent'>
-    <view class='cars-type'>车   型：</view>
-    <input class='cars-input' name='carType' placeholder="车型：如奥迪、宝马、奔驰等" bindinput='carTypeInput'></input>
-  </view>
+<form>
+	<view class='cu-form-group'>
+		<view class='title'>车辆状态</view>
+	</view>
 
-  <view class='cars-style-parent'>
-    <view class='cars-style'>车   系：</view>
-    <input class='cars-input' name='carStyle' placeholder="车系：如A6L、530Li、E300L等" bindinput='carStyleInput'></input>
-  </view>
+	<radio-group class='block cu-card' bindchange="radioChange">
+		<view class='cu-form-group'>
+			<view class="title">使用中</view>
+			<radio class="radio" value="1" checked="true"></radio>
+		</view>
+		<view class='cu-form-group'>
+			<view class="title">停止使用</view>
+			<radio class="radio" value="0"></radio>
+		</view>
+	</radio-group>
+
+	<view class='cu-form-group margin-top'>
+		<view class='title'>车 型</view>
+		<input name='carType' placeholder="奥迪、宝马、奔驰等" bindinput='carTypeInput'></input>
+	</view>
+
+	<view class='cu-form-group'>
+		<view class='title'>车 系</view>
+		<input name='carStyle' placeholder="A6L、530Li、E300L等" bindinput='carStyleInput'></input>
+	</view>
 
 
-  <view class='cars-number-parent'>
-    <view class='cars-number'>车 牌：</view>
-    <input class='cars-input' name='carNumber' placeholder="如：粤B123AB" bindinput='carNumberInput'></input>
-  </view>
+	<view class='cu-form-group'>
+		<view class='title'>车 牌</view>
+		<input name='carNumber' placeholder="粤B123AB" bindinput='carNumberInput'></input>
+	</view>
 
-  <view class='cars-button-parent'>
-    <button class='cars-button-cancel' bindtap="cancelButton">取消</button>
-    <button class='cars-button-confirm' bindtap="confirmButton">确定</button>
-  </view>
+	<view class='cu-form-group'>
+		<view class='title'>落地价</view>
+		<input name='carPrice' placeholder="40W" bindinput='carPriceInput'></input>
+	</view>
 
+	<view class='cu-form-group'>
+		<view class='title'>购车日期</view>
+		<input name='carBuyDate' placeholder="2019年3月" bindinput='carBuyDateInput'></input>
+	</view>
+</form>
+
+<view class="flex solid-bottom padding justify-around ">
+	<view class="bg-white padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap="cancelButton">取 消</view>
+	<view class="bg-green padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap='confirmButton'>确定</view>
 </view>

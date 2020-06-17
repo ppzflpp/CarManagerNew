@@ -4,14 +4,7 @@ const util = require('./utils/util.js')
 var db = null;
 
 App({
-  onLaunch: function() {
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-      })
-    }
+  onLaunch: function () {
 
     if (this.globalData.DEBUG) {
       util.log("debug mode");
@@ -22,10 +15,21 @@ App({
       this.globalData.tableName = "records"
       this.globalData.env = 'release-5q0el'
     }
+
+
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        traceUser: true,
+        env : this.globalData.env,
+      })
+    }
+
     util.log('tableName = ' + this.globalData.tableName);
 
     db = wx.cloud.database({
-      env: this.globalData.env   
+      env: this.globalData.env
     })
 
     var that = this;
@@ -34,7 +38,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        util.log("login success,",res)
+        util.log("login success,", res)
         if (res.code) {
           wx.cloud.callFunction({
             name: 'login',
@@ -75,14 +79,14 @@ App({
               }
             }
           })
-        }else{
+        } else {
           util.log("未授权");
         }
       }
     })
   },
 
-  updateGlobalData : function(){
+  updateGlobalData: function () {
     var that = this;
     util.log("updateGlobalData");
     //获取服务器存储用户信息
@@ -99,15 +103,19 @@ App({
   },
 
   globalData: {
-    realUserInfo : null,
+    carList: [],
+    realUserInfo: null,
     userInfo: null,
     updateData: false,
     openId: '',
     itemList: null,
     tableName: "",
-    env:"",
+    env: "",
     DEBUG: false,
-    versionInfo:'当前版本：v1.5.0 ',
-    feed:'请加微信给作者反馈意见，微信：lfz_123_lfz'
+    versionInfo: '当前版本：v1.5.0 \n发布日期：2020年5月20日',
+    feed: '请加微信给作者反馈意见\n微信：lfz_123_lfz',
+    //编辑车辆信息的时候中间变量
+    editingCar : null,
+    updateCars : false,
   }
 })

@@ -1,7 +1,4 @@
-/* pages/chart/chart.wxss */
-page {
-  background-color: #F5F5F7;
-} 
+
 
 .chart-container {
   height: 100%;
@@ -51,7 +48,7 @@ page {
   border-color: #ffffff;
   border-radius: 50rpx;
   height: 50rpx;
-  width: 205rpx;
+  width: 225rpx;
   margin-left: 25rpx;
   margin-top:25rpx;
   align-items: center;
@@ -65,7 +62,7 @@ page {
 .year-text-class{
   width: 100%;
   text-align: left;
-  color: #4555ff;
+  color: black;
   font-size: 30rpx;
   padding-left:10rpx;
 }
@@ -75,7 +72,7 @@ page {
   flex-direction: row;
   width: 100%;
   height:125rpx;
-  background-color: #4555ff;
+  background-color: #39b54a;
     border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
 }

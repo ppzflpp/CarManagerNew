@@ -1,0 +1,12 @@
+<view class="cu-list menu-avatar">
+	<view class="cu-item margin-bottom-self" wx:for="{{programList}}" data-index='{{index}}' bindtap='onItemClick'>
+		<image class="cu-avatar round lg" src='{{item.icon}}'></image>
+		<view class="content flex-sub">
+			<view class="text-black">{{item.title}}</view>
+			<view class="text-black text-sm flex justify-between">
+				{{item.desc}}
+			</view>
+		</view>
+	</view>
+</view>
+<view class="title margin-top">{{tip}}</view>

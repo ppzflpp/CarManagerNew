@@ -11,16 +11,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    state:1,
     carType: null,
     catStyle: null,
-    carNumber:null
+    carNumber:null,
+    carPrice:null,
+    carBuyDate:null,
+    carImage:"",
+    editable : false,
+    objectId : null,
+    car : null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("onLoad")
+    console.log("options.edit",options.edit)
+    if(1 == options.edit){
+      this.data.editable = true;
+      let car = app.globalData.editingCar;
+      if(car){
+        this.setData({
+          carState: car.carState,
+          carType : car.carType,
+          carStyle : car.carStyle,
+          carPrice : car.carPrice,
+          carBuyDate : car.carBuyDate,
+          objectId : car._id
+        })
+      }
+    }
   },
 
   carTypeInput: function (e) {
@@ -44,10 +65,30 @@ Page({
     })
   },
 
+  carPriceInput: function (e) {
+    console.log("carPriceInput:", e.detail.value)
+    this.setData({
+      carPrice: e.detail.value
+    })
+  },
+
+  carBuyDateInput: function (e) {
+    console.log("carBuyDateInput:", e.detail.value)
+    this.setData({
+      carBuyDate: e.detail.value
+    })
+  },
+
+  radioChange: function(e){
+    console.log(e.detail.value);
+    this.setData({
+      carState: e.detail.value
+    })
+  },
+
   cancelButton: function(){
     //返回上级页面
-    wx.navigateBack({  
-    })
+    wx.navigateBack()
   },
 
   confirmButton: function(){
@@ -76,10 +117,6 @@ Page({
 
 
     var that = this;
-
-    console.log("app.globalData.openId", app.globalData.openId);
-
-    console.log("    app.globalData.env", app.globalData.env);
     //添加新的车辆信息
     wx.showLoading({
       title: '正在保存',
@@ -88,61 +125,34 @@ Page({
     wx.cloud.callFunction({
       name: 'updateCars',
       data: {
-        tableName: 'carmanager-user-info',
+        edit:that.data.editable,
+        objectId:that.data.objectId,
         openId: app.globalData.openId,
-        env: app.globalData.env, 
-        info: {
-          carType: that.data.carType,
-          carStyle: that.data.carStyle,
-          carNumber: that.data.carNumber,
-        }
+        carState: that.data.carState,
+        carType: that.data.carType,
+        carStyle: that.data.carStyle,
+        carNumber: that.data.carNumber,
+        carPrice: that.data.carPrice,
+        carBuyDate: that.data.carBuyDate,
+        carImage:that.data.carImage
       },
       success: res => {
         console.log('更新数据成功', res)
         //更新globalData
         app.updateGlobalData();
         wx.hideLoading();
-        wx.switchTab({
-          url: '/pages/my/my',
-        })
+        app.globalData.updateCars = true;
+        wx.navigateBack();
       }
     })
-    /*
-    userInfo.where({
-      openId : app.globalData.openId
-    }).get({
-      success: function (res) {
-        // res.data 包含该记录的数据
-        console.log("confirmButton",res);
-        if(res.data != null && res.data.length != 0){
-          //保持车辆信息
-          console.log("1,_id = ", res.data[0]._id);
-          wx.cloud.callFunction({
-            name: 'update',
-            data: {
-              tableName: 'carmanager-user-info',
-              _id: res.data[0]._id,
-              info: {
-                carType: that.data.carType,
-                carStyle: that.data.carStyle,
-                carNumber: that.data.carNumber,
-              }
-            },
-            success: res => {
-              console.log('更新数据成功',res)
-            }
-          })
-        }
-      }
-    })
-    */
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**

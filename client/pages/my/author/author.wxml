@@ -1,0 +1,9 @@
+<view class="cu-form-group">
+		<view class="text-lg">微信：{{wx}}</view>
+		<button class="cu-btn bg-green shadow " bindtap="copyWX">点击复制</button>
+	</view>
+
+  <view class="cu-form-group">
+			<view class="text-lg">QQ：{{qq}}</view>
+		<button class="cu-btn bg-green shadow " bindtap="copyQQ">点击复制</button>
+	</view>

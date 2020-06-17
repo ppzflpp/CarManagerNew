@@ -19,6 +19,8 @@ exports.main = async(event, context) => {
       money : event.money,
       info : event.info,
       updateDate : event.updateDate,
+      indexCar : event.indexCar,
+      distance : event.distance,
     }
   });
 }

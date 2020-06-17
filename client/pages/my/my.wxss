@@ -48,3 +48,9 @@
   margin-top: 20rpx;
 }
 
+.class-author{
+  background-color: #f7f7f9;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+

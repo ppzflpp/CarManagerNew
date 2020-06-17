@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
     "pages/edit/edit",
@@ -8,17 +9,25 @@
     "pages/discovery/discovery",
     "pages/my/cars/carsList/carsList",
     "pages/my/cars/addCar/addCar",
-    "pages/news/news"
+    "pages/my/feed/feed",
+    "pages/my/author/author",
+    "pages/my/versionInfo/versionInfo",
+    "pages/home/home",
+    "pages/my/recProgram/recProgram"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "养车消费记录",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#4555ff",
+    "selectedColor": "#39b54a",
     "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "主页"
+      },
       {
         "pagePath": "pages/index/index",
         "text": "明细"
@@ -39,4 +48,5 @@
       "desc": "获取附近的优惠信息"
     }
   }
+  
 }
