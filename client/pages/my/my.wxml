@@ -1,0 +1,48 @@
+<view class='cu-list menu '>
+	<!--个人信息---->
+
+
+
+	<view class='class-my-personal-info'>
+		<image class='cu-avatar xl round ' src='{{headIcon}}'></image>
+		<view class='text-lg margin-top'>{{nick}}</view>
+		<view wx:if='{{!logined}}'>
+			<button class='cu-btn bg-green shadow ' open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">点击登录</button>
+		</view>
+	</view>
+
+
+
+	<!--意见反馈---->
+	<view class="cu-item arrow margin-top" bindtap='onFeedClick'>
+		<view class="content">
+			<text class="cuIcon-circlefill text-orange"></text>
+			<text class="text-grey">意见反馈</text>
+		</view>
+	</view>
+
+	<!--版本信息---->
+	<view class="cu-item arrow" bindtap='onVersionInfoClick'>
+		<view class="content">
+			<text class="cuIcon-settings text-pink"></text>
+			<text class="text-grey">版本信息</text>
+		</view>
+	</view>
+
+	<!--联系作者---->
+	<view class="cu-item arrow" bindtap='onAuthorClick'>
+		<view class="content">
+			<text class="cuIcon-peoplefill text-green"></text>
+			<text class="text-grey">联系作者</text>
+		</view>
+	</view>
+
+	<!--小程序推荐---->
+	<view class="cu-item arrow" bindtap='onRecProgremClick'>
+		<view class="content">
+			<text class="cuIcon-likefill text-red"></text>
+			<text class="text-grey">小程序推荐</text>
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,8 @@
+<view class="cu-form-group">
+		<view class="text-lg">当前版本</view>
+		<view class="text-lg">V2.0</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="text-lg">发布日期</view>
+		<view class="text-lg">2020年6月18日</view>
+	</view>

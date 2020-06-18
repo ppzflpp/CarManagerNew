@@ -1,0 +1,106 @@
+.cu-form-group .title {
+  min-width: calc(5em + 30rpx);
+}
+
+.cars-state-parent{
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50rpx;
+}
+
+.radio-0{
+  margin-left: 30rpx;
+  font-size: 32rpx;
+}
+
+.radio-1{
+  font-size: 32rpx;
+}
+
+.cars-state{
+  margin-right: 30rpx;
+  font-size:32rpx;
+}
+
+.cars-parent{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50rpx;
+}
+
+.cars-style{
+  margin-right: 30rpx;
+  font-size:32rpx;
+}
+
+.cars-number{
+  margin-right: 30rpx;
+  font-size:32rpx;
+}
+
+.cars-type{
+  margin-right: 30rpx;
+  font-size:32rpx;
+}
+
+.cars-button-parent{
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50rpx;
+}
+
+
+.cars-input{
+  background-color: #f7f7f9;
+  height: 72rpx;
+  width: 500rpx;
+  margin-top: 5rpx;
+  font-size:24rpx;
+
+}
+
+.cars-type-parent{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.cars-style-parent{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.cars-number-parent{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.cars-button-cancel{
+  font-size:32rpx;
+}
+
+.cars-button-confirm{
+  font-size:32rpx;
+  background-color: #6789f8;
+  color: #fff;
+}

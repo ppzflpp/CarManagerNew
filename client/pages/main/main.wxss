@@ -1,0 +1,51 @@
+
+.car-list-child{
+  margin-top: 10rpx;
+  background-color: antiquewhite;
+  margin: 20rpx;
+  padding-bottom: 30rpx;
+  padding-top: 30rpx;
+  border-radius: 20rpx;
+  position: relative; 
+}
+
+.car-list-child-state{
+  position: absolute;
+  right: 0rpx;
+  top:0rpx;
+  border-top-right-radius: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-size: 32rpx;
+}
+
+
+.car-list-child-parent{
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  width: 100%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.car-list-child-left{
+  width:200rpx;
+  text-align-last: justify;
+}
+
+.car-list-child-right{
+margin-left: 30rpx;
+}
+
+.add-car-parent{
+  display: flex;
+  justify-content: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+
+.empty{
+  height: 0;
+}

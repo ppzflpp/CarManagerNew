@@ -1,0 +1,31 @@
+/**index.wxss**/
+.margin-bottom-self{
+  margin-bottom: 1px;
+}
+
+.round-click {
+  height: 125rpx;
+  width: 125rpx;
+  background-color: #39b54a;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  color: #fff;
+}
+
+
+.empty-content {
+  position: fixed;
+  top: 150rpx;
+  left: 250rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "main": "/pages/main/main",
+    "chart": "/pages/chart/chart",
+    "detail": "/pages/index/index",
+    "discovery": "/pages/discovery/discovery",
+    "my": "/pages/my/my"
+  }
+}

@@ -1,0 +1,47 @@
+<form>
+	<view class='cu-form-group'>
+		<view class='title'>车辆状态</view>
+	</view>
+
+	<radio-group class='block cu-card' bindchange="radioChange">
+		<view class='cu-form-group'>
+			<view class="title">使用中</view>
+			<radio class="radio" value="1" checked="{{carState == 1 ? true :false}}"></radio>
+		</view>
+		<view class='cu-form-group'>
+			<view class="title">停止使用</view>
+			<radio class="radio" value="0" checked="{{carState != 1 ? true :false}}"></radio>
+		</view>
+	</radio-group>
+
+	<view class='cu-form-group margin-top'>
+		<view class='title'>车 型</view>
+		<input name='carType' placeholder="奥迪、宝马、奔驰等" bindinput='carTypeInput' value="{{carType}}"></input>
+	</view>
+
+	<view class='cu-form-group'>
+		<view class='title'>车 系</view>
+		<input name='carStyle' placeholder="A6L、530Li、E300L等" bindinput='carStyleInput' value="{{carStyle}}"></input>
+	</view>
+
+
+	<view class='cu-form-group'>
+		<view class='title'>车 牌</view>
+		<input name='carNumber' placeholder="粤B123AB" bindinput='carNumberInput' value="{{carNumber}}"></input>
+	</view>
+
+	<view class='cu-form-group'>
+		<view class='title'>落地价</view>
+		<input name='carPrice' placeholder="40W" bindinput='carPriceInput' value="{{carPrice}}"></input>
+	</view>
+
+	<view class='cu-form-group'>
+		<view class='title'>购车日期</view>
+		<input name='carBuyDate' placeholder="2019年3月" bindinput='carBuyDateInput' value="{{carBuyDate}}"></input>
+	</view>
+</form>
+
+<view class="flex solid-bottom padding justify-around ">
+	<view class="bg-white padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap="cancelButton">取 消</view>
+	<view class="bg-green padding-top-sm padding-bottom-sm padding-left-lg padding-right-lg margin-xs radius" bindtap='confirmButton'>确定</view>
+</view>

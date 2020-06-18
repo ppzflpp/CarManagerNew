@@ -1,0 +1,25 @@
+
+<view  class="cu-list menu-avatar">
+	<view class="cu-item margin-bottom-self" wx:for="{{newsList}}" data-clickIndex='{{index}}' bindtap='onItemClick'>
+		<image class="cu-avatar round lg" src='{{imageArray[item.index]}}'>
+		</image>
+		<view class="content flex-sub">
+			<view class="">{{item.style}}</view>
+			<view class="text-gray text-sm flex justify-between">
+				{{item.date}}
+			</view>
+		</view>
+		<view class="text-black text-blod text-xxl margin-right-sm">
+			{{item.money}}
+		</view>
+		<view class="text-black text-blod  margin-right-lg">
+			元
+		</view>
+	</view>
+</view>
+
+<view class="round-click" bindtap="onAddClick">添加</view>
+
+<view class="empty-content">
+	{{empty_content}}
+</view>

@@ -1,0 +1,26 @@
+<main wx:if="{{currentPage=='main'}}"></main>
+<chart wx:if="{{currentPage=='chart'}}"></chart>
+<detail wx:if="{{currentPage=='detail'}}"></detail>
+<discovery wx:if="{{currentPage=='discovery'}}"></discovery>
+<my wx:if="{{PageCur=='my'}}"></my>
+
+<view class="cu-bar tabbar  bg-white foot">
+	<view class="action {{currentPage=='main'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="main">
+		<view class="cuIcon-homefill"></view> 主页
+	</view>
+	<view class="action {{currentPage=='chart'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="chart">
+		<view class="cuIcon-similar"></view> 报表
+	</view>
+	<view class="action add-action {{currentPage=='add'?'text-green':'text-gray'}}" bindtap="addRecord" >
+		<button class="cu-btn cuIcon-add bg-green shadow"></button>
+		添加
+	</view>
+	<view class="action {{currentPage=='detail'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="detail">
+		<view class="cuIcon-cart"></view>
+		明细
+	</view>
+	<view class="action {{currentPage=='my'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="my">
+		<view class="cuIcon-my"></view>
+		我的
+	</view>
+</view>
